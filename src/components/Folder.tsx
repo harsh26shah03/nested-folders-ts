@@ -29,14 +29,13 @@ const getRandomColors = () => {
   return contrastColors[Math.floor(Math.random() * contrastColors.length)]
 }
 
-
 type FolderProps = {
   data: FolderData[]
   name: string
   dispatch: React.Dispatch<FileManagerAction>
 }
 
-const Folder = ({ data, name, dispatch }:FolderProps) => {
+const Folder = ({ data, name, dispatch }: FolderProps) => {
   const [isFolderOpen, setIsFolderOpen] = useState(false) // Folder state, whether it is open or not
   const [color] = useState(getRandomColors()) // Color state
   const [hover, setHover] = useState(false) // Folder hover state to get same color outline when hovered
@@ -54,7 +53,10 @@ const Folder = ({ data, name, dispatch }:FolderProps) => {
             type: 'contextMenuOpen',
             payload: {
               open: true,
-              position: { x: (e.nativeEvent as MouseEvent & {layerX:number})?.layerX, y:(e.nativeEvent as MouseEvent & {layerY:number})?.layerY },
+              position: {
+                x: (e.nativeEvent as MouseEvent & { layerX: number })?.layerX,
+                y: (e.nativeEvent as MouseEvent & { layerY: number })?.layerY
+              },
               destination: name
             }
           })
