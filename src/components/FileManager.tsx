@@ -4,6 +4,7 @@ import { useReducer } from 'react'
 import FileExplorer from './FileExplorer'
 import ContextMenu from './ContextMenu'
 import Notification from './Notification'
+import { FolderData } from '../type'
 
 type FileManagerState = {
   openedFile: string | null
@@ -103,7 +104,7 @@ const FileManager = () => {
           gap: 20
         }}
       >
-        <FileExplorer dispatch={dispatch} files={files} />
+        <FileExplorer dispatch={dispatch} files={files as FolderData} />
       </div>
 
       {/* Preview of file opened. */}

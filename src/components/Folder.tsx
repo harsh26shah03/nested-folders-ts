@@ -54,7 +54,7 @@ const Folder = ({ data, name, dispatch }:FolderProps) => {
             type: 'contextMenuOpen',
             payload: {
               open: true,
-              position: { x: e.nativeEvent?.layerX, y: e.nativeEvent?.layerY },
+              position: { x: (e.nativeEvent as MouseEvent & {layerX:number})?.layerX, y:(e.nativeEvent as MouseEvent & {layerY:number})?.layerY },
               destination: name
             }
           })
